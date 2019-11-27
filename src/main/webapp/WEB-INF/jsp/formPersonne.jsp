@@ -19,8 +19,8 @@
 			<select id="civilite" name="civilite">
 				<option value="0">-- Civilite --</option>
 				<c:forEach var="civ" items="${civilite}">
-				<option value="${civ.key}">
-					<c:out value="${civ.value}"/>
+				<option value="${civ.id}">
+					<c:out value="${civ.libelle}"/>
 				</option>
 				</c:forEach>
 			</select>

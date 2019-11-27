@@ -1,9 +1,6 @@
 package mynetflix.modele;
 
-import java.sql.SQLException;
-
 import mynetflix.modele.FormulaireInvalide;
-import mynetflix.dao.RequestPersonne;
 
 public class Personne {
 
@@ -28,10 +25,6 @@ public class Personne {
 	
 	private static boolean isBlank(String valeur) {
 		return valeur == null || "".equals(valeur);
-	}
-
-	public void addPersonne() throws SQLException {
-		RequestPersonne.setPersonne(this.nom, this.prenom, this.idcivilite);
 	}
 	
 	public String getNom() {

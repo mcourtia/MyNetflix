@@ -1,19 +1,26 @@
 package mynetflix.modele;
 
-import java.sql.SQLException;
-import java.util.Map;
-
-import mynetflix.dao.RequestStatut;
-
 public class Statut {
-
-	private Map<Integer, String> status;
 	
-	public Statut() throws SQLException {
-		this.status = RequestStatut.getStatuts();
+	private int id;
+	private String libelle;
+	private int idaffectation;
+	
+	public Statut(int id, String libelle, int idaffectation) {
+		this.id = id;
+		this.libelle = libelle;
+		this.idaffectation = idaffectation;
 	}
-	
-	public Map<Integer, String> getStatuts() {
-		return this.status;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public int getIdaffectation() {
+		return idaffectation;
 	}
 }

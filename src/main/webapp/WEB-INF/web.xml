@@ -2,4 +2,8 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
+	<resource-ref>
+		<res-ref-name>myNetflix</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
 </web-app>

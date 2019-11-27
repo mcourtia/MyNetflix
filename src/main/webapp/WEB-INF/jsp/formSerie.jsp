@@ -16,27 +16,27 @@
 			<input id="nomOriginal" name="nomOriginal" type="text" placeholder="Nom original">
 		</div>
 		<div>
-			<input id="annee" name="annee" type="number" placeholder="Année de parution">
+			<input id="anneeparution" name="anneeparution" type="text" placeholder="Année de parution">
 		</div>
 		<div>
-			<textarea id="synopsys" name="synopsys" placeholder="Synopsys"></textarea>
+			<textarea id="synopsys" name="synopsys" placeholder="Synopsis"></textarea>
 		</div>
 		<div>
-			<select id="statut" name="statut">
+			<select id="idstatut" name="idstatut">
 				<option value="0">-- Statut --</option>
 				<c:forEach var="st" items="${statut}">
-				<option value="${st.key}">
-					<c:out value="${st.value}"/>
+				<option value="${st.id}">
+					<c:out value="${st.libelle}"/>
 				</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div>
-			<select id="pays" name="pays">
+			<select id="idpays" name="idpays">
 				<option value="0">-- Pays d'origine --</option>
 				<c:forEach var="p" items="${pays}">
-				<option value="${p.key}">
-					<c:out value="${p.value}"/>
+				<option value="${p.id}">
+					<c:out value="${p.nom}"/>
 				</option>
 				</c:forEach>
 			</select>

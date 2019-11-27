@@ -1,15 +1,13 @@
 package mynetflix.modele;
 
-public class Civilite {
-
+public class Affectation {
+	
 	private int id;
 	private String libelle;
-	private String abbr;
 	
-	public Civilite(int id, String libelle, String abbr) {
+	public Affectation(int id, String libelle) {
 		this.id = id;
 		this.libelle = libelle;
-		this.abbr = abbr;
 	}
 
 	public int getId() {
@@ -19,8 +17,5 @@ public class Civilite {
 	public String getLibelle() {
 		return libelle;
 	}
-
-	public String getAbbr() {
-		return abbr;
-	}
+	
 }
