@@ -1,14 +1,13 @@
 package mynetflix.modele;
 
-public class plateforme {
+public class Plateforme {
 	
 	private int id;
 	private String libelle;
 	private String fqdn;
 	private int idPays;
 	
-	public plateforme(int id, String libelle, String fqdn, int idPays) {
-		super();
+	public Plateforme(int id, String libelle, String fqdn, int idPays) {
 		this.id = id;
 		this.libelle = libelle;
 		this.fqdn = fqdn;

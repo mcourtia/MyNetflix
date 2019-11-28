@@ -32,10 +32,14 @@ public class Serie {
         if (isBlank(idpaysorigine) || idpaysorigine.equals("0")) {
             throw new FormulaireInvalide("Veuillez choisir un pays d'origine !");
         }
+        try {
+        	this.anneeparution = Integer.valueOf(anneeparution);
+        } catch(NumberFormatException e) {
+			throw new FormulaireInvalide("L'année est invalide !");
+		}
         this.nom = nom;
         this.nomoriginal = nomoriginal;
-        this.synopsys = synopsys;
-        this.anneeparution = Integer.valueOf(anneeparution);
+        this.synopsys = (synopsys == "") ? null:synopsys;
         this.idstatut = Integer.valueOf(idstatut);
         this.idpaysorigine = Integer.valueOf(idpaysorigine);
     }

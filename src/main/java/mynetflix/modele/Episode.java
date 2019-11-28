@@ -1,9 +1,6 @@
 package mynetflix.modele;
 
-import java.sql.SQLException;
 import java.util.Date;
-
-
 
 public class Episode {
 	
@@ -17,7 +14,6 @@ public class Episode {
 	private Date dateDiff;
 	private String publicLimiteAge; // impossible d'appeler juste "public" cette variable
 	private String statut;
-	
 	
 	public Episode(String serie, String saison, String titreEpisode, String titreEpisodeOriginal, int duree,
 			String resume, Date dateReal, Date dateDiff, String publicLimiteAge, String statut) throws FormulaireInvalide {
@@ -38,7 +34,6 @@ public class Episode {
 			throw new FormulaireInvalide("Veuillez indiquer le statut de votre épisode !");
 		}
 		
-		
 		this.serie = serie;
 		this.saison = saison;
 		this.titreEpisode = titreEpisode;
@@ -49,10 +44,6 @@ public class Episode {
 		this.dateDiff = dateDiff;
 		this.publicLimiteAge = publicLimiteAge;
 		this.statut = statut;
-	}
-	
-	public void addEpisode() throws SQLException{
-		// Ajouter la request episode
 	}
 
 	private static boolean isBlank(String valeur) {
@@ -107,9 +98,5 @@ public class Episode {
 	public String getStatut() {
 		return statut;
 	}
-
-	
-	
-	
 
 }

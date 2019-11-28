@@ -19,7 +19,7 @@ import mynetflix.modele.Personne;
 public class PersonneControleurServlet extends HttpServlet {
 
 	private static final String VUE_FORM = "/WEB-INF/jsp/formPersonne.jsp";
-	private static final String VUE_ACCUEIL = "/WEB-INF/jsp/accueil.jsp";
+	private static final String VUE_RECAP = "/WEB-INF/jsp/recap.jsp";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +37,7 @@ public class PersonneControleurServlet extends HttpServlet {
 			String idcivilite = req.getParameter("civilite");
 			Personne personne = new Personne(nom, prenom, idcivilite);
 			new PersonneDAO().insertPersonne(personne);
-			getServletContext().getRequestDispatcher(VUE_ACCUEIL).forward(req, resp);
+			getServletContext().getRequestDispatcher(VUE_RECAP).forward(req, resp);
 		} catch (FormulaireInvalide e) {
 			req.setAttribute("message", e.getMessage());
 			getServletContext().getRequestDispatcher(VUE_FORM).forward(req, resp);

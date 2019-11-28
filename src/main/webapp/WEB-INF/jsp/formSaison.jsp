@@ -10,30 +10,30 @@
 	<div><c:out value="${message}"/></div>
 	<form method="post" accept-charset="utf-8">
 		<div>
-			<select id="serie" name="serie">
+			<select id="idserie" name="idserie">
 				<option value="0">-- Série --</option>
 				<c:forEach var="s" items="${serie}">
-				<option value="${s.key}">
-					<c:out value="${s.value}"/>
+				<option value="${s.id}">
+					<c:out value="${s.nom}"/>
 				</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div>
-			<input id="numsaison" name="numsaison" type="number" placeholder="Numéro saison">
+			<input id="numero" name="numero" type="text" placeholder="Numéro saison">
 		</div>
 		<div>
 			<textarea id="resume" name="resume" placeholder="Résumé"></textarea>
 		</div>
 		<div>
-			<input id="annee" name="annee" type="number" placeholder="Année de diffusion">
+			<input id="annee_diffusion" name="annee_diffusion" type="text" placeholder="Année de diffusion">
 		</div>
 		<div>
-			<select id="statut" name="statut">
+			<select id="idstatut" name="idstatut">
 				<option value="0">-- Statut --</option>
 				<c:forEach var="st" items="${statut}">
-				<option value="${st.key}">
-					<c:out value="${st.value}"/>
+				<option value="${st.id}">
+					<c:out value="${st.libelle}"/>
 				</option>
 				</c:forEach>
 			</select>
