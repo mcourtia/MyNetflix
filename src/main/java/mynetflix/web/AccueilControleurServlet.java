@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/home")
 public class AccueilControleurServlet extends HttpServlet {
 
 	private static final String VUE_ACCUEIL = "/WEB-INF/jsp/accueil.jsp";

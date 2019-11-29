@@ -1,17 +1,23 @@
 @charset "ISO-8859-1";
 
+body {
+	text-align: center;
+}
+
 h1 {
-	width: 680px;
-	margin-left:20%;
 	text-align: center;
 	margin-top: 5%;
 	color: #126492;
 	font-family: 'Montserrat', sans-serif;
 }
 
+input, select {
+	text-align: center;
+}
+
 #menu {
 	width: 680px;
-	margin-left: 20%;
+	margin-left: calc(50% - 400px);
 	background-color: #C8E5EA;
 	display: flex;
 	flex-wrap: wrap;
@@ -19,39 +25,24 @@ h1 {
 }
 
 #personne {
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px;
 }
 
 #serie {
-	padding-top: 7px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	
+	margin: 10px;
 }
 
 #saison {
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px;
 }
 
 #episode {
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px;
 }
 
 #bloc {
 	padding-top: 9px;
 	padding-bottom:9px;
-	padding-left: 30px;
 	width: 550px;
 	text-align: center;
 	margin-left: 28%;
@@ -70,114 +61,41 @@ h1 {
 	width: 200px;
 	font-size: 16px;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 #retacc {
-	
+	cursor: pointer;
 }
 
-#civilite {
+/* Formulaire personne */
+#civilite, #nom, #prenom {
 	width: 200px;
-	padding-top:3px;
-	padding-bottom:3px; 
-	margin-left: 23%;
+	margin-top:3px;
+	margin-bottom:3px; 
 }
 
-#nom {
-	width: 200px;
-	padding-top:3px;
-	padding-bottom:3px; 
-	margin-left: 23%;
-}
-
-#prenom {
-	width: 200px;
-	padding-top:3px;
-	padding-bottom:3px; 
-	margin-left: 23%;
-}
-
-#noms {
+/* Formulaire série */
+#noms, #nomOriginal, #anneeparution, #synopsys {
 	width: 350px;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
-#nomOriginal {
-	width: 350px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#annee {
-	width: 200px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#synopsys {
-	width: 350px;
-	height: 50px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#statut {
+
+#idstatut, #idpays {
 	width: 200px; 
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
-#pays {
-	width: 200px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
 
-#serie {
+/* Formulaire saison et épisode */
+#idserie, #numero, #resume, #titre, #titreoriginal, #idsaison {
 	width: 350px;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
-#numsaison {
-	width: 350px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#numepisode {
-	width: 200px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#titre {
-	width: 350px;
-	height: 50px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#titreOriginal {
+#annee_diffusion, #duree, #dateReal, #dateDiff, #idpublic {
 	width: 200px; 
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#duree {
-	width: 200px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#resume {
-	width: 350px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#dateReal {
-	width: 350px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#dateDiff {
-	width: 200px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#public {
-	width: 350px;
-	height: 50px;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }

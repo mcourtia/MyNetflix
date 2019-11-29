@@ -1,6 +1,7 @@
 package mynetflix.modele;
 
 import java.util.Date;
+import utils.UtilsDate;
 
 public class Episode {
 	
@@ -36,17 +37,17 @@ public class Episode {
 		if (isBlank(idstatut)) {
 			throw new FormulaireInvalide("Veuillez indiquer le statut de l'épisode !");
 		}
-		if (!isBlank(dateReal) && !matchDate(dateReal)) {
+		if (!isBlank(dateReal) && !verifDate(dateReal)) {
 			throw new FormulaireInvalide("Date de réalisation invalide !");
 		}
-		if (!isBlank(dateDiff) && !matchDate(dateDiff)) {
+		if (!isBlank(dateDiff) && !verifDate(dateDiff)) {
 			throw new FormulaireInvalide("Date de diffusion invalide !");
 		}
 		if (!isBlank(duree)) {
 	        try {
 	        	this.duree = Integer.valueOf(duree);
 	        } catch(NumberFormatException e) {
-				throw new FormulaireInvalide("L'année est invalide !");
+				throw new FormulaireInvalide("La durée est invalide !");
 	        }
         }
 		
@@ -72,6 +73,14 @@ public class Episode {
 	//Méthode qui vérifie le format de la date à l'aide d'une regex
 	private static boolean matchDate(String valeur) {
 		return valeur.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}$");
+	}
+	
+	private static boolean verifDate(String date) {
+		if (matchDate(date)) {
+			String elem[] = date.split("-");
+			return UtilsDate.estValide(Integer.valueOf(elem[2]), Integer.valueOf(elem[1]), Integer.valueOf(elem[0]));
+		}
+		return false;
 	}
 
 	public int getId() {
