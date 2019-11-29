@@ -11,19 +11,20 @@
 <body>
 	<h1>Choix de la série</h1>
 	<div id="bloc">
-	<form method="post" accept-charset="utf-8">
-		<div>
-			<select id="idserie" name="idserie">
-				<option value="0">-- Série --</option>
-				<c:forEach var="s" items="${serie}">
-				<option value="${s.id}">
-					<c:out value="${s.nom}"/>
-				</option>
-				</c:forEach>
-			</select>
-		</div>
-		<button type="submit" id="button">Sélectionner série</button>
-	</form>
-	<a href="<c:url value="/"/>"><button id="retacc">Retour à l'accueil</button></a>
+		<form method="post" accept-charset="utf-8">
+			<div>
+				<select id="idserie" name="idserie">
+					<option value="0">-- Série --</option>
+					<c:forEach var="s" items="${serie}">
+					<option value="${s.id}">
+						<c:out value="${s.nom}"/>
+					</option>
+					</c:forEach>
+				</select>
+			</div>
+			<button type="submit" id="button">Sélectionner série</button>
+		</form>
+		<a href="<c:url value="/"/>"><button id="retacc">Retour à l'accueil</button></a>
+	</div>
 </body>
 </html>

@@ -45,9 +45,8 @@ input, select {
 	padding-bottom:9px;
 	width: 550px;
 	text-align: center;
-	margin-left: 28%;
+	margin-left: calc(50% - 275px);
 	background-color: #C8E5EA;
-	
 }
 
 #button {
