@@ -32,6 +32,7 @@ public class Saison{
         } catch(NumberFormatException e) {
 			throw new FormulaireInvalide("Le numéro n'est pas un nombre !");
         }
+        
         this.resume = (resume == "") ? null:resume;
         this.idstatut = Integer.valueOf(idstatut);
         this.idserie = Integer.valueOf(idserie);

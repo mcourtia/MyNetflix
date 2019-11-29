@@ -8,57 +8,56 @@
 </head>
 <body>
 	<div><c:out value="${message}"/></div>
-	<form method="post" accept-charset="utf-8">
+	<form action="/myNetflixJsp/addEpisode" method="post" accept-charset="utf-8">
+		<div>Série : <c:out value="${serie.nom}"/></div>
+		<input id="idserie" name="idserie" type="hidden" value="<c:out value="${serie.id}"/>">
 		<div>
-			<select id="serie" name="serie">
-				<option value="0">-- Série --</option>
-				<c:forEach var="s" items="${serie}">
-				<option value="${s.key}">
-					<c:out value="${s.value}"/>
+			<select id="idsaison" name="idsaison">
+				<option value="0">-- Saison --</option>
+				<c:forEach var="s" items="${saison}">
+				<option value="${s.id}">
+					<c:out value="${s.numero}"/>
 				</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div>
-			<input id="numsaison" name="numsaison" type="number" placeholder="Numéro saison">
-		</div>
-		<div>
-			<input id="numepisode" name="numepisode" type="number" placeholder="Numéro épisode">
+			<input id="numero" name="numero" type="text" placeholder="Numéro épisode">
 		</div>
 		<div>
 			<input id="titre" name="titre" type="text" placeholder="Titre">
 		</div>
 		<div>
-			<input id="titreOriginal" name="titreOriginal" type="text" placeholder="Titre original">
+			<input id="titreoriginal" name="titreoriginal" type="text" placeholder="Titre original">
 		</div>
 		<div>
-			<input id="duree" name="duree" type="number" placeholder="Durée">
+			<input id="duree" name="duree" type="text" placeholder="Durée">
 		</div>
 		<div>
 			<textarea id="resume" name="resume" placeholder="Résumé"></textarea>
 		</div>
 		<div>
-			<input id="dateReal" name="dateReal" type="text" placeholder="Date de réalisation">
+			<input id="dateReal" name="dateReal" type="text" placeholder="Date de réalisation AAAA-MM-DD">
 		</div>
 		<div>
-			<input id="dateDiff" name="dateDiff" type="text" placeholder="Date de diffusion">
+			<input id="dateDiff" name="dateDiff" type="text" placeholder="Date de diffusion AAAA-MM-DD">
 		</div>
 		<div>
-			<select id="public" name="public">
+			<select id="idpublic" name="idpublic">
 				<option value="0">-- Public --</option>
-				<c:forEach var="p" items="${public}">
-				<option value="${p.key}">
-					<c:out value="${p.value}"/>
+				<c:forEach var="p" items="${publicAge}">
+				<option value="${p.id}">
+					<c:out value="${p.libelle}"/>
 				</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div>
-			<select id="statut" name="statut">
+			<select id="idstatut" name="idstatut">
 				<option value="0">-- Statut --</option>
 				<c:forEach var="st" items="${statut}">
-				<option value="${st.key}">
-					<c:out value="${st.value}"/>
+				<option value="${st.id}">
+					<c:out value="${st.libelle}"/>
 				</option>
 				</c:forEach>
 			</select>

@@ -17,7 +17,7 @@ public class QualiteDAO extends ConnectionDAO {
 	
 	public List<Qualite> selectQualite(){
 		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
-			ResultSet rs = stmt.executeQuery("SELECT id, libelle FROM qualite");
+			ResultSet rs = stmt.executeQuery("SELECT id, libelle, idformataudio, idformatvideo FROM qualite");
 			List<Qualite> qlt = new ArrayList<Qualite>();
 			while (rs.next()) {
 				qlt.add(new Qualite(rs.getInt("id"), rs.getString("libelle"),rs.getInt("idformataudio"),rs.getInt("idformatvideo")));

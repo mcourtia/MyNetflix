@@ -48,4 +48,17 @@ public class SaisonDAO extends ConnectionDAO {
 			throw new ErreurDAOException("");
 		}
 	}
+	
+	public List<Saison> selectSaison(int idserie) {
+		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT id, numero FROM saison WHERE idserie =" + idserie);
+			List<Saison> saison = new ArrayList<Saison>();
+			while (rs.next()) {
+				saison.add(new Saison(rs.getInt("id"), rs.getInt("numero")));
+			}
+			return saison;
+		} catch(SQLException e) {
+			throw new ErreurDAOException("");
+		}
+	}
 }

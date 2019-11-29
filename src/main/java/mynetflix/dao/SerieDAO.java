@@ -45,4 +45,17 @@ public class SerieDAO extends ConnectionDAO {
 			throw new ErreurDAOException("");
 		}
 	}
+	
+	public Serie selectSerie(int idserie) {
+		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT id, nom FROM serie WHERE id=" + idserie);
+			Serie serie = null; 
+			while (rs.next()) {
+				serie = new Serie(rs.getInt("id"), rs.getString("nom"));
+			}
+			return serie;
+		} catch(SQLException e) {
+			throw new ErreurDAOException("");
+		}
+	}
 }

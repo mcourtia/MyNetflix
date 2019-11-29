@@ -4,69 +4,91 @@ import java.util.Date;
 
 public class Episode {
 	
-	private String serie;
-	private String saison;
-	private String titreEpisode;
-	private String titreEpisodeOriginal;
+	private int id;
+	private int numero;
+	private String titre;
+	private String titreoriginal;
 	private int duree;
 	private String resume;
-	private Date dateReal;
-	private Date dateDiff;
-	private String publicLimiteAge; // impossible d'appeler juste "public" cette variable
-	private String statut;
+	private String dateReal;
+	private String dateDiff;
+	private int idpublicAge; // impossible d'appeler juste "public" cette variable
+	private int idstatut;
+	private int idsaison;
 	
-	public Episode(String serie, String saison, String titreEpisode, String titreEpisodeOriginal, int duree,
-			String resume, Date dateReal, Date dateDiff, String publicLimiteAge, String statut) throws FormulaireInvalide {
+	public Episode(String numero, String titre, String titreoriginal, String duree,
+			String resume, String dateReal, String dateDiff, String idpublicAge, String idstatut, String idsaison) throws FormulaireInvalide {
 		
-		if (isBlank(serie)) {
-			throw new FormulaireInvalide("Veuillez indiquer la série de l'épisode !");
+		if (isBlank(numero)) {
+			throw new FormulaireInvalide("Veuillez indiquer le numéro de l'épisode !");
 		}
-		if (isBlank(saison)) {
-			throw new FormulaireInvalide("Veuillez indiquer la saison de l'épisode !");
+		try {
+			this.numero = Integer.valueOf(numero);
+		} catch (NumberFormatException e) {
+			throw new FormulaireInvalide("Numéro d'épisode invalide !");
 		}
-		if (isBlank(titreEpisode)) {
-			throw new FormulaireInvalide("Veuillez indiquer le titre de votre épisode !");
+		if (isBlank(titre)) {
+			throw new FormulaireInvalide("Veuillez indiquer le titre de l'épisode !");
 		}
-		if (isBlank(publicLimiteAge)) {
-			throw new FormulaireInvalide("Veuillez indiquer la limite d'age de l'épisode de votre épisode !");
+		if (isBlank(idpublicAge)) {
+			throw new FormulaireInvalide("Veuillez indiquer la limite d'age de l'épisode !");
 		}
-		if (isBlank(statut)) {
-			throw new FormulaireInvalide("Veuillez indiquer le statut de votre épisode !");
+		if (isBlank(idstatut)) {
+			throw new FormulaireInvalide("Veuillez indiquer le statut de l'épisode !");
 		}
+		if (!isBlank(dateReal) && !matchDate(dateReal)) {
+			throw new FormulaireInvalide("Date de réalisation invalide !");
+		}
+		if (!isBlank(dateDiff) && !matchDate(dateDiff)) {
+			throw new FormulaireInvalide("Date de diffusion invalide !");
+		}
+		if (!isBlank(duree)) {
+	        try {
+	        	this.duree = Integer.valueOf(duree);
+	        } catch(NumberFormatException e) {
+				throw new FormulaireInvalide("L'année est invalide !");
+	        }
+        }
 		
-		this.serie = serie;
-		this.saison = saison;
-		this.titreEpisode = titreEpisode;
-		this.titreEpisodeOriginal = titreEpisodeOriginal;
-		this.duree = duree;
-		this.resume = resume;
+		this.titre = titre;
+		this.titreoriginal = titreoriginal;
+        this.resume = (resume == "") ? null:resume;
 		this.dateReal = dateReal;
 		this.dateDiff = dateDiff;
-		this.publicLimiteAge = publicLimiteAge;
-		this.statut = statut;
+		this.idpublicAge = Integer.valueOf(idpublicAge);
+		this.idstatut = Integer.valueOf(idstatut);
+		this.idsaison = Integer.valueOf(idsaison);
+	}
+	
+	public Episode(int id, int numero) {
+		this.id = id;
+		this.numero = numero;
 	}
 
 	private static boolean isBlank(String valeur) {
 		return valeur == null || "".equals(valeur);
 	}
+	
+	//Méthode qui vérifie le format de la date à l'aide d'une regex
+	private static boolean matchDate(String valeur) {
+		return valeur.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}$");
+	}
 
-	public String getSerie() {
-		return serie;
+	public int getId() {
+		return id;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public String getTitre() {
+		return titre;
 	}
 
 
-	public String getSaison() {
-		return saison;
-	}
-
-
-	public String getTitreEpisode() {
-		return titreEpisode;
-	}
-
-
-	public String getTitreEpisodeOriginal() {
-		return titreEpisodeOriginal;
+	public String getTitreoriginal() {
+		return titreoriginal;
 	}
 
 
@@ -80,23 +102,25 @@ public class Episode {
 	}
 
 
-	public Date getDateReal() {
+	public String getDateReal() {
 		return dateReal;
 	}
 
 
-	public Date getDateDiff() {
+	public String getDateDiff() {
 		return dateDiff;
 	}
 
-
-	public String getPublicLimiteAge() {
-		return publicLimiteAge;
+	public int getIdpublicAge() {
+		return idpublicAge;
 	}
 
+	public int getIdstatut() {
+		return idstatut;
+	}
 
-	public String getStatut() {
-		return statut;
+	public int getIdsaison() {
+		return idsaison;
 	}
 
 }

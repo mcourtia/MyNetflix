@@ -17,7 +17,7 @@ public class TrailerDAO extends ConnectionDAO{
 	
 	public List<Trailer> selectTrailer(){
 		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
-			ResultSet rs = stmt.executeQuery("SELECT id, libelle FROM trailer");
+			ResultSet rs = stmt.executeQuery("SELECT id, idepisdoe, idplateforme, url FROM trailer");
 			List<Trailer> trl = new ArrayList<Trailer>();
 			while (rs.next()) {
 				trl.add(new Trailer(rs.getInt("id"), rs.getInt("idepisode"), rs.getInt("idplateforme"), rs.getString("url")));

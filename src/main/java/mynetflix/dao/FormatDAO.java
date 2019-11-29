@@ -17,7 +17,7 @@ public class FormatDAO extends ConnectionDAO{
 	
 	public List<Format> selectFormat(){
 		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
-			ResultSet rs = stmt.executeQuery("SELECT id, libelle FROM format");
+			ResultSet rs = stmt.executeQuery("SELECT id, libelle, description, idtypeformat FROM format");
 			List<Format> frt = new ArrayList<Format>();
 			while (rs.next()) {
 				frt.add(new Format(rs.getInt("id"), rs.getString("libelle"),rs.getString("description"),rs.getInt("idtypeformat")));

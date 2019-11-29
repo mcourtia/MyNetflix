@@ -8,7 +8,6 @@ public class Qualite {
 	private int idFormatVideo;
 	
 	public Qualite(int id, String libelle, int idFormatAudio, int idFormatVideo) {
-		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.idFormatAudio = idFormatAudio;
